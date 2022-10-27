@@ -8,9 +8,13 @@ With Crayon it's easy to create and manage rich text styles with ease. No more h
 Every time you put a token in wrong.
 
 ## Install:
- Get it from:
- - [Roblox marketplace](https://create.roblox.com/marketplace/models)
- - [Github releases tab](https://github.com/Almost89/Crayon/releases)
+Get it from:
+- [the Roblox marketplace](https://create.roblox.com/marketplace/models)
+- [the Github releases tab](https://github.com/Almost89/Crayon/releases)
+- Require with id:
+```lua
+require(ID_WILL_BE_PUT_HERE)
+```
 
 ## Usage:
 ```lua
@@ -43,14 +47,14 @@ label.Text = errorStyle "oh noes!"
 ```
 ## Special keys:
 > NOTE: all API is case-insensitive. this does not mean that the args some functions take are!
-- extend: creates a new crayon object with the old crayon's chain
+- `extend` (aka `e`): creates a new crayon object with the old crayon's chain
 ```lua
 local crayon1 = crayon.extend.bold.underline -- extends crayon's chain (which should has nothing in) with bold and underline
 local crayon2 = crayon1.extend.yellow -- extends crayon1's chain (so it has bold and underline) with yellow
 
 -- NOTE: crayon1 and crayon2 ARE NOW DIFFERENT. If you changed crayon1's chain crayon2 does NOT UPDATE!
 ```
-- clean: cleans a crayon's chain
+- `clean` (aka `c`): cleans a crayon's chain
 ```lua
 label.Text = crayon.red.bold.underline "Hello!" -- this sets crayon's chain to red, bold and underlined
 label.Text = crayon.opacity "0.5" -- so we set opacity but the text would still be red, bold and underlined bc the chain never got reset
@@ -60,25 +64,25 @@ label.Text = crayon.red.bold.underline "Hello!" -- set crayon's chain to red, bo
 label.Text = crayon.clean.opacity "0.5" -- this will just be opacity!
 ```
 ## Styles:
-### Built-in colors:
-- black
--	green
-- yellow
-- blue
-- magenta
-- cyan
-- white
-- gray (or grey)
-### Built-in rich text:
-- bold
-- italic
-- underline
-- strikethorugh
-### Built-in function rich text:
-- opacity: `(opacity: string | number)` (same as transparency)
-- transparency: `(transparency: string | number)` (same as opacity)
-- weight: `(weight: string | number)`
-- font: `(font: Font)`
-- color: `(color: Color3)`
+### Colors:
+- `black`
+-	`green`
+- `yellow`
+- `blue`
+- `magenta`
+- `cyan`
+- `white`
+- `gray` (aka `grey`)
+### Rich text:
+- `bold` (aka `b`)
+- `italic` (aka `i`)
+- `underline` (aka `u`)
+- `strikethorugh` (aka `s`)
+- `uppercase` (aka `uc`)
+### Function rich text:
+- `transparency` (aka `opacity`): `(transparency: string | number)`
+- `weight`: `(weight: string | number)`
+- `font`: `(font: Font)`
+- `color`: `(color: Color3)`
 
-> Something wrong? [Create a new issue](https://github.com/Almost89/Crayon/issues/new) and I will try and fix it!
+> Found something wrong? [Create a new issue](https://github.com/Almost89/Crayon/issues/new) and I will try and fix it!
