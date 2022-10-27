@@ -11,10 +11,6 @@ Every time you put a token in wrong.
 Get it from:
 - [the Roblox marketplace](https://create.roblox.com/marketplace/models)
 - [the Github releases tab](https://github.com/Almost89/Crayon/releases)
-- Require with id:
-```lua
-require(ID_WILL_BE_PUT_HERE)
-```
 
 ## Usage:
 ```lua
