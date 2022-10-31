@@ -42,14 +42,15 @@ label.Text = warningStyle "oh%s noes!" :format "not very" -- format
 label.Text = errorStyle "oh noes!"
 ```
 ## Special keys:
-> NOTE: all API is case-insensitive. this does not mean that the args some functions take are!
+> **Warning**: all API is case-insensitive. this does not mean that the args some functions take are!
+
 - `extend` (aka `e`): creates a new crayon object with the old crayons' chain
 ```lua
-local crayon1 = crayon.extend.bold.underline -- extends crayons' chain (which should has nothing in) with bold and underline
-local crayon2 = crayon1.extend.yellow -- extends crayon1's chain (so it has bold and underline) with yellow
-
--- NOTE: crayon1 and crayon2 ARE NOW DIFFERENT. If you changed crayon1's chain crayon2 does NOT UPDATE!
+local crayon1 = crayon.extend.bold.underline -- extends crayons' chain (which should have nothing in it) with bold and underline
+local crayon2 = crayon1.extend.yellow -- extends crayon1s' chain (so it has bold and underline) with yellow
 ```
+> **Warning**: in the above example crayon1 and crayon2 ARE NOW DIFFERENT. If you changed crayon1s' chain crayon2 does NOT UPDATE!
+
 - `clean` (aka `c`): cleans a crayons' chain
 ```lua
 label.Text = crayon.red.bold.underline "Hello!" -- this sets crayons' chain to red, bold and underlined
@@ -60,7 +61,7 @@ label.Text = crayon.red.bold.underline "Hello!" -- set crayons' chain to red, bo
 label.Text = crayon.clean.opacity "0.5" -- this will just be opacity!
 ```
 ## Styles:
-### Colors:
+### Non-call styles:
 - `black`
 -	`green`
 - `yellow`
@@ -69,16 +70,21 @@ label.Text = crayon.clean.opacity "0.5" -- this will just be opacity!
 - `cyan`
 - `white`
 - `gray` (aka `grey`)
-### Rich text:
 - `bold` (aka `b`)
 - `italic` (aka `i`)
 - `underline` (aka `u`)
 - `strikethorugh` (aka `s`)
 - `uppercase` (aka `uc`)
-### Function rich text:
+### Call styles:
 - `transparency` (aka `opacity`): `(transparency: string | number)`
 - `weight`: `(weight: string | number)`
 - `font`: `(font: Font)`
 - `color`: `(color: Color3)`
 
-> Found something wrong? [Create a new issue](https://github.com/Almost89/Crayon/issues/new) and I will try and fix it!
+> **Note**:
+> 
+> If you found something wrong you can:
+> - [Create a new issue](https://github.com/Almost89/Crayon/issues/new) (response may be slow)
+> - more later.
+> 
+> I will try and fix anything asap!
