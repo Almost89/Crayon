@@ -8,9 +8,10 @@ With Crayon it's easy to create and manage rich text styles with ease. No more h
 Every time you put a token in wrong.
 
 ## Install:
-Get it from:
-- [the Roblox marketplace](https://create.roblox.com/marketplace/asset/11389890705)
-- [the Github releases tab](https://github.com/Almost89/Crayon/releases)
+Get it:
+- [from the Roblox marketplace](https://create.roblox.com/marketplace/asset/11389890705)
+- [from the Github releases tab](https://github.com/Almost89/Crayon/releases)
+- ~~with Wally~~
 
 ## Usage:
 ```lua
