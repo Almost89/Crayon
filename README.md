@@ -43,20 +43,20 @@ label.Text = errorStyle "oh noes!"
 ```
 ## Special keys:
 > NOTE: all API is case-insensitive. this does not mean that the args some functions take are!
-- `extend` (aka `e`): creates a new crayon object with the old crayon's chain
+- `extend` (aka `e`): creates a new crayon object with the old crayons' chain
 ```lua
-local crayon1 = crayon.extend.bold.underline -- extends crayon's chain (which should has nothing in) with bold and underline
+local crayon1 = crayon.extend.bold.underline -- extends crayons' chain (which should has nothing in) with bold and underline
 local crayon2 = crayon1.extend.yellow -- extends crayon1's chain (so it has bold and underline) with yellow
 
 -- NOTE: crayon1 and crayon2 ARE NOW DIFFERENT. If you changed crayon1's chain crayon2 does NOT UPDATE!
 ```
-- `clean` (aka `c`): cleans a crayon's chain
+- `clean` (aka `c`): cleans a crayons' chain
 ```lua
-label.Text = crayon.red.bold.underline "Hello!" -- this sets crayon's chain to red, bold and underlined
+label.Text = crayon.red.bold.underline "Hello!" -- this sets crayons' chain to red, bold and underlined
 label.Text = crayon.opacity "0.5" -- so we set opacity but the text would still be red, bold and underlined bc the chain never got reset
 -- and that's where .clean comes in!
 -- if we do the code above again:
-label.Text = crayon.red.bold.underline "Hello!" -- set crayon's chain to red, bold and underlined
+label.Text = crayon.red.bold.underline "Hello!" -- set crayons' chain to red, bold and underlined
 label.Text = crayon.clean.opacity "0.5" -- this will just be opacity!
 ```
 ## Styles:
