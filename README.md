@@ -11,7 +11,7 @@ Every time you put a token in wrong.
 Get it:
 - [from the Roblox marketplace](https://create.roblox.com/marketplace/asset/11389890705)
 - [from the Github releases tab](https://github.com/Almost89/Crayon/releases)
-- ~~[with Wally](/#install)~~ (soon)
+- ~~[with Wally](#install)~~ (soon)
 
 ## Usage:
 ```lua
