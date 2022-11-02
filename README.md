@@ -45,21 +45,21 @@ label.Text = errorStyle "oh noes!"
 ## Special keys:
 > **Warning**: all API is case-insensitive. this does not mean that the args some functions take are!
 
-- `extend` (aka `e`): creates a new crayon object with the old crayons' chain
+- `extend` (aka `e`): creates a new crayon object with the old crayon's chain
 ```lua
-local crayon1 = crayon.extend.bold.underline -- extends crayons' chain (which should have nothing in it) with bold and underline
+local crayon1 = crayon.extend.bold.underline -- extends crayon's chain (which should have nothing in it) with bold and underline
 local crayon2 = crayon1.extend.yellow -- extends crayon1s' chain (so it has bold and underline) with yellow
 ```
-> **Warning**: in the above example crayon1 and crayon2 ARE NOW DIFFERENT. If you changed crayon1s' chain crayon2 does NOT UPDATE!
+> **Warning**: in the above example crayon1 and crayon2 ARE NOW DIFFERENT. If you changed crayon1's chain crayon2's one DOES NOT!
 
-- `clean` (aka `c`): cleans a crayons' chain
+- `clean` (aka `c`): cleans a crayon's chain
 ```lua
-label.Text = crayon.red.bold.underline "Hello!" -- this sets crayons' chain to red, bold and underlined
-label.Text = crayon.opacity "0.5" -- so we set opacity but the text would still be red, bold and underlined bc the chain never got reset
+label.Text = crayon.red.bold.underline "Hello!" -- this sets crayon's chain to red, bold and underlined
+label.Text = crayon.opacity "0.5 opacity" -- so we set opacity but the text will still also be red, bold and underlined bc the chain never got reset
 -- and that's where .clean comes in!
 -- if we do the code above again:
-label.Text = crayon.red.bold.underline "Hello!" -- set crayons' chain to red, bold and underlined
-label.Text = crayon.clean.opacity "0.5" -- this will just be opacity!
+label.Text = crayon.red.bold.underline "Hello!" -- set crayon's chain to red, bold and underlined
+label.Text = crayon.clean.opacity "0.5 opacity" -- this will just be opacity!
 ```
 ## Styles:
 ### Non-call styles:
@@ -82,10 +82,4 @@ label.Text = crayon.clean.opacity "0.5" -- this will just be opacity!
 - `font`: `(font: Font)`
 - `color`: `(color: Color3)`
 
-> **Note**:
-> 
-> If you found something wrong you can:
-> - [Create a new issue](https://github.com/Almost89/Crayon/issues/new) (response may be slow)
-> - more later.
-> 
-> I will try and fix anything asap!
+> **Note**: If you found something wrong you can always [create a new issue](https://github.com/Almost89/Crayon/issues/new) (response may be slow)
