@@ -8,49 +8,21 @@
 local Crayon = {}
 Crayon.__index = Crayon
 
-local Processer = require(script.Processer)
 local types = require(script.types)
+local Processer = require(script.Processer)
 
--- TODO: move special keys into Processer
-local SPECIAL_KEYS = {
-	extend = function(crayon)
-		local newCrayon = Crayon.new()
-
-		newCrayon.chain = table.clone(crayon.chain)
-
-		return newCrayon
-	end,
-	clean = function(crayon)
-		table.clear(crayon.chain)
-		return crayon
-	end,
-}
-SPECIAL_KEYS.c = SPECIAL_KEYS.clean
-SPECIAL_KEYS.e = SPECIAL_KEYS.extend
-
-function Crayon.new(): types.class
+function Crayon.new(chain: {[string | number]: string}?): types.class
 	return setmetatable({
-		chain = {},
+		chain = chain or {},
 	}, Crayon)
 end
 
 function Crayon:__index(key): any
-	local lowered = key:lower()
-	
-	local special = SPECIAL_KEYS[lowered]
-	if special then
-		return special(self)
-	end
-	
-	return Processer:processIndexed(self, lowered)
+	return Processer:processIndexed(Crayon, self, key:lower())
 end
 
 function Crayon:__call(...: string): string
 	return Processer:processChain(self.chain, table.concat({...}, " "))
-end
-
-function Crayon:__len(): number
-	return #self.chain
 end
 
 return Crayon.new()
