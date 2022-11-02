@@ -4,7 +4,7 @@
 	By: @Almost89 (Almosta_89)
 	License: MIT
 ]]
-return function(startToken: string, text: string, ...: any)
+return function(startToken: string, text: string, ...: any): string
 	local endToken = "</" .. startToken:split(" ")[1]:sub(2)
 	endToken ..= if endToken:sub(#endToken) ~= ">" then ">" else ""
 
