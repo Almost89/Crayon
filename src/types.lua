@@ -35,7 +35,7 @@ export type class = {
 	transparency: (transparency: string | number) -> class,
 	weight: (weight: string | number) -> class,
 	font: (font: Font) -> class,
-	color: (color: Color3) -> class,
+	color: (color: Color3 | BrickColor) -> class,
 	
 	-- class customizers
 	clean: class,
