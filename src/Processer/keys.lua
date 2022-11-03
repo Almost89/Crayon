@@ -10,15 +10,15 @@ local unpackKeys = require(script.Parent.unpackKeys)
 
 -- builtin colors
 local colors = {
-	black = BrickColor.Black(),
-	red = BrickColor.Red(),
-	green = BrickColor.Green(),
-	yellow = BrickColor.Yellow(),
-	blue = BrickColor.Blue(),
+	black = Color3.fromRGB(0, 0, 0),
+	red = Color3.fromRGB(255, 0, 0),
+	green = Color3.fromRGB(0, 255, 0),
+	yellow = Color3.fromRGB(255, 255, 0),
+	blue = Color3.fromRGB(0, 0, 255),
 	magenta = Color3.fromRGB(255, 0, 255),
 	cyan = Color3.fromRGB(0, 255, 255),
-	white = BrickColor.White(),
-	gray = BrickColor.Gray(),
+	white = Color3.fromRGB(255, 255, 255),
+	gray = Color3.fromRGB(150, 150, 150),
 }
 colors.grey = colors.gray
 
@@ -48,8 +48,8 @@ local specialTokens = {
 	font = function(font: Font)
 		return {
 			[tokens.special.weight:format(font.Weight.Name)] = "weight",
-			if font.Style == Enum.FontStyle.Italic then "italic" else nil,
 			[tokens.special.family:format(font.Family)] = "family",
+			if font.Style == Enum.FontStyle.Italic then "italic" else nil,
 			if font.Bold then "bold" else nil
 		}
 	end,
@@ -75,6 +75,9 @@ local classFucntions = {
 		return crayon
 	end,
 }
+classFucntions.e = classFucntions.extend
+classFucntions.c = classFucntions.clean
+
 -- overlaps are when two values can't be together
 -- e.g. no point in having both red and blue in a crayon
 -- (this would also cause conflict between the two colors)
