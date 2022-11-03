@@ -1,4 +1,5 @@
 > **Warning**: Crayon currently has some bugs that have been fixed but not release. They will be deployed when I have the time!
+---
 # Crayon 🖍️
 > Don't bother with rich text. Based on [Chalk](https://github.com/chalk/chalk).
 
