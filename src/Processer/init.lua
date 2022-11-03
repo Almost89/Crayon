@@ -20,10 +20,9 @@ function Processer:processChain(chain: {string}, text: string)
 	local formatted = text
 	
 	for customToken, key in chain do
-		local token = tokens[key]
+		local token = tokens[key] or tokens.special[key]
 		if token and not find(special.ignore, token) then
-			formatted = format(if type(token) == "function" then customToken else token, formatted)
-			continue
+			formatted = format(if type(customToken) == "string" then customToken else token, formatted)
 		end
 	end
 
@@ -59,6 +58,7 @@ function Processer:processIndexed(crayonClass, crayon: {chain: {string}}, key: s
 
 				if type(customToken) == "table" then
 					for subCustomToken, subKey in customToken do
+						-- TODO: add overlap checks here
 						crayon.chain[subCustomToken] = subKey
 					end
 				elseif type(customToken) == "string" then
