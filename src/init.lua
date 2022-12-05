@@ -8,16 +8,16 @@
 local Crayon = {}
 Crayon.__index = Crayon
 
-local types = require(script.types)
+local Types = require(script.Types)
 local Processer = require(script.Processer)
 
-function Crayon.new(chain: {[string | number]: string}?): types.class
+function Crayon.new(chain: {[string | number]: string}?): Types.CrayonObject
 	return setmetatable({
 		chain = chain or {},
 	}, Crayon)
 end
 
-function Crayon:__index(key): any
+function Crayon:__index(key: string): any
 	return Processer:processIndexed(Crayon, self, key:lower())
 end
 
