@@ -1,7 +1,8 @@
 # Crayon 🖍️
 > Don't bother with rich text. Based on [Chalk](https://github.com/chalk/chalk).
 
-![image](https://user-images.githubusercontent.com/78914413/199683064-91f5f542-2c44-4c50-9150-b0e326901f9e.png)
+![A preview of all the possible styles](https://user-images.githubusercontent.com/78914413/205636713-32d61aba-d036-4d65-bd70-0a8479e8259c.png)
+
 
 With Crayon it's easy to create and manage rich text styles with ease. No more having to look at:
 ```html
@@ -13,7 +14,7 @@ Every time you put a token in wrong.
 Get it:
 - [from the Roblox marketplace](https://create.roblox.com/marketplace/asset/11389890705)
 - [from the Github releases tab](https://github.com/Almost89/Crayon/releases)
-- ~~[with Wally](#install)~~ (soon)
+- ~~[with Wally]()~~ (soon)
 
 ## Usage:
 ```lua
@@ -50,7 +51,7 @@ label.Text = errorStyle "oh noes!"
 - `extend` (aka `e`): creates a new crayon object with the old crayon's chain
 ```lua
 local crayon1 = crayon.extend.bold.underline -- extends crayon's chain (which should have nothing in it) with bold and underline
-local crayon2 = crayon1.extend.yellow -- extends crayon1s' chain (so it has bold and underline) with yellow
+local crayon2 = crayon1.extend.yellow -- extends crayon1's chain (so it has bold and underline) with yellow
 ```
 > **Warning**: in the above example crayon1 and crayon2 ARE NOW DIFFERENT. If you changed crayon1's chain crayon2's one DOES NOT!
 
@@ -76,7 +77,7 @@ label.Text = crayon.clean.opacity "0.5 opacity" -- this will just be opacity!
 - `bold` (aka `b`)
 - `italic` (aka `i`)
 - `underline` (aka `u`)
-- `strikethorugh` (aka `s`)
+- `strikethrough` (aka `s`)
 - `uppercase` (aka `uc`)
 ### Call (or function) styles:
 - `transparency` (aka `opacity`): `(transparency: string | number)`
