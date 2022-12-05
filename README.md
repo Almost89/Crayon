@@ -8,7 +8,6 @@
 
 </div>
 
-
 With Crayon it's easy to create and manage rich text styles with ease. No more having to look at:
 ```html
 <font weight='regular'><font color='rgb(196,40,28)'><u><b>Oh noes! Something went</b></u></font></font><font weight='regular'><i><fnot color='rgb(196,40,28)'><u><b> very </b></u></font></i></font><font weight='regular'><font color='rgb(196,40,28)'><u><b>wrong!</b></u></font></font>
