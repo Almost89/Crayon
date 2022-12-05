@@ -28,7 +28,7 @@ local tokens = {
 	italic = "<i>",
 	underline = "<u>",
 	uppercase = "<uc>",
-	strikethorugh = "<s>",
+	strikethrough = "<s>",
 
 	special = {
 		transparency = "<font transparency='%s'>",
@@ -40,7 +40,7 @@ local tokens = {
 tokens.b = tokens.bold
 tokens.i = tokens.italic
 tokens.u = tokens.underline
-tokens.s = tokens.strikethorugh
+tokens.s = tokens.strikethrough
 tokens.uc = tokens.uppercase
 
 -- these are special tokens as they need to be called
@@ -50,7 +50,7 @@ local specialTokens = {
 			[tokens.special.weight:format(font.Weight.Name)] = "weight",
 			[tokens.special.family:format(font.Family)] = "family",
 			if font.Style == Enum.FontStyle.Italic then "italic" else nil,
-			if font.Bold then "bold" else nil
+			if font.Bold then "bold" else nil,
 		}
 	end,
 	color = function(color: Color3 | BrickColor)
@@ -97,7 +97,7 @@ local ignore = {
 
 -- push the colors into tokens at require
 for name, color in colors do
-	tokens[name] = tokens.special.color:format(rgb(color))
+	tokens[name] = specialTokens.color(color)
 end
 -- also push function tokens at require
 for name, func in specialTokens do
