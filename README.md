@@ -1,3 +1,4 @@
+> **Warning**: **This branch is unstable and may not function as the docs below say!**
 # Crayon 🖍️
 > Don't bother with rich text. Based on [Chalk](https://github.com/chalk/chalk).
 
