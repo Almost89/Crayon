@@ -1,7 +1,12 @@
-# Crayon 🖍️
-> Don't bother with rich text. Based on [Chalk](https://github.com/chalk/chalk).
+<div align="center" style="background: red;">
+
+# `🖍️ Crayon`
+
+### `Don't bother with rich text. Based on `[`Chalk`](https://github.com/chalk/chalk)`.`
 
 ![A preview of all the possible styles](https://user-images.githubusercontent.com/78914413/205636713-32d61aba-d036-4d65-bd70-0a8479e8259c.png)
+
+</div>
 
 
 With Crayon it's easy to create and manage rich text styles with ease. No more having to look at:
