@@ -4,6 +4,7 @@
 	By: @Almost89 (Almosta_89)
 	License: MIT
 ]]
+local Types = require(script.Parent.Types)
 
 local rgb = require(script.rgb)
 local find = require(script.find)
@@ -30,7 +31,7 @@ function Processer:processChain(chain: {string}, text: string)
 end
 
 -- processes a new indexed key
-function Processer:processIndexed(crayonClass, crayon: {chain: {string}}, key: string): any
+function Processer:processIndexed(crayonClass: Types.CrayonClass, crayon: {chain: {string}}, key: string): any
 	if not find(special.ignore, key) then
 		if special.classFucntions[key] then
 			return special.classFucntions[key](crayonClass, crayon)
