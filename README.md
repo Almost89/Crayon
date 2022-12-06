@@ -2,7 +2,7 @@
 
 # `🖍️ Crayon`
 
-### `Don't bother with rich text. Based on `[`Chalk`](https://github.com/chalk/chalk)`.`
+### <code>Don't bother with rich text. Based on [Chalk](https://github.com/chalk/chalk).</code>
 
 ![A preview of all the possible styles](https://user-images.githubusercontent.com/78914413/205636713-32d61aba-d036-4d65-bd70-0a8479e8259c.png)
 
