@@ -1,6 +1,6 @@
+--!strict
 --[[
 	rgb - Unpacks a Color3 (or BrickColor) value in to it's red, green and blue values.
-
 	By: @Almost89 (Almosta_89)
 	License: MIT
 ]]

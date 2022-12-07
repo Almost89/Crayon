@@ -1,3 +1,4 @@
+--!strict
 --[[
 	find - Finds the needle in the haystack.
 	
@@ -7,7 +8,7 @@
 	(this might be pointless as table.find exists!)
 ]]
 
-return function(haystack: {[any]: any}, needle: any): any | false
+return function(haystack: { [any]: any }, needle: any): any | false
 	for index, value in haystack do
 		if value == needle then
 			return index

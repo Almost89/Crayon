@@ -1,0 +1,12 @@
+# Project place file
+/blokserve.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+# Wally
+/Packages
+
+# Project tests
+/tests
