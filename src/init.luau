@@ -35,4 +35,4 @@ function Crayon(chain: Types.CrayonChain?): Types.CrayonObject
 end
 
 -- logic:
-return Crayon()
+return Crayon() :: Types.CrayonPubObject

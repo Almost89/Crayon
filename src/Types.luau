@@ -18,7 +18,6 @@ export type ProcesserObject = {
 	checkOverlaps: (self: ProcesserObject, key: string) -> (),
 }
 
-export type CrayonPubObject = {}
 export type CrayonObject = {
 	processer: ProcesserObject,
 
@@ -37,5 +36,44 @@ export type Keys = {
 		classCallKeys: {},
 	},
 }
+
+export type CrayonPubObject = ({
+	-- colors
+	black: CrayonPubObject,
+	red: CrayonPubObject,
+	green: CrayonPubObject,
+	yellow: CrayonPubObject,
+	blue: CrayonPubObject,
+	magenta: CrayonPubObject,
+	cyan: CrayonPubObject,
+	white: CrayonPubObject,
+	gray: CrayonPubObject,
+	grey: CrayonPubObject,
+
+	-- richtext
+	bold: CrayonPubObject,
+	italic: CrayonPubObject,
+	underline: CrayonPubObject,
+	strikethrough: CrayonPubObject,
+	uppercase: CrayonPubObject,
+	b: CrayonPubObject,
+	i: CrayonPubObject,
+	u: CrayonPubObject,
+	s: CrayonPubObject,
+	uc: CrayonPubObject,
+
+	-- function richtext
+	opacity: (opacity: string | number) -> CrayonPubObject,
+	transparency: (transparency: string | number) -> CrayonPubObject,
+	weight: (weight: string | number) -> CrayonPubObject,
+	font: (font: Font) -> CrayonPubObject,
+	color: (color: Color3 | BrickColor) -> CrayonPubObject,
+
+	-- object customizers
+	clean: CrayonPubObject,
+	c: CrayonPubObject,
+	extend: CrayonPubObject,
+	e: CrayonPubObject,
+} | (...string) -> string)
 
 return nil

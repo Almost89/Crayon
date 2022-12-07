@@ -6,4 +6,7 @@
 /*.rbxl.lock
 
 # Wally
-*/Packages
+/Packages
+
+# Project tests
+/tests
