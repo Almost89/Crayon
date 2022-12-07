@@ -1,9 +1,6 @@
 {
   "name": "Crayon",
   "tree": {
-    "$path": "src",
-    "Packages": {
-      "$path": "Packages"
-    }
+    "$path": "src"
   }
 }
