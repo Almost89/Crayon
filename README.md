@@ -1,7 +1,5 @@
 <div align="center" style="background: red;">
 
-**⚠️ This branch is unstable and may not function as the docs below say! ⚠️**
-
 # `🖍️ Crayon`
 
 ### <code>Don't bother with rich text. Based on [Chalk](https://github.com/chalk/chalk).</code>
