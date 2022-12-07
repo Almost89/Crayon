@@ -19,7 +19,7 @@ local function index(self: Types.CrayonObject, key: string): any
 end
 
 local function call(self: Types.CrayonObject, ...: string): string
-	return rawget(self, "processor"):processChain(table.concat({...}, " "))
+	return rawget(self, "processor"):processChain(table.concat({ ... }, " "))
 end
 
 function Crayon(chain: Types.CrayonChain?): Types.CrayonObject

@@ -12,7 +12,7 @@ export type ProcesserObject = {
 	chain: CrayonChain,
 	crayon: CrayonObject,
 	crayonConstructer: (chain: CrayonChain?) -> CrayonObject,
-	
+
 	processChain: (self: ProcesserObject, text: string) -> string,
 	processIndexed: (self: ProcesserObject, key: string) -> any,
 	checkOverlaps: (self: ProcesserObject, key: string) -> (),
@@ -21,7 +21,7 @@ export type ProcesserObject = {
 export type CrayonPubObject = {}
 export type CrayonObject = {
 	processer: ProcesserObject,
-	
+
 	__index: (self: CrayonObject) -> any,
 	__call: (self: CrayonObject) -> string,
 }
@@ -32,10 +32,8 @@ export type Keys = {
 		[string]: any,
 	},
 	special: {
-		formatKeys: {[string]: string?},
-		keyOverlaps: {
-			{string}?
-		},
+		formatKeys: { [string]: string? },
+		keyOverlaps: { { string }? },
 		classCallKeys: {},
 	},
 }

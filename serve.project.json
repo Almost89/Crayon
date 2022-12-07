@@ -1,0 +1,14 @@
+{
+  "name": "crayonserve",
+  "tree": {
+    "$className": "DataModel",
+    "$ignoreUnknownInstances": true,
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$ignoreUnknownInstances": true,
+      "Crayon": {
+        "$path": "default.project.json"
+      }
+    }
+  }
+}

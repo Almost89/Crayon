@@ -22,14 +22,15 @@ local special = Keys.special
 -- functions:
 local function processChain(self: Types.ProcesserObject, text: string)
 	local formatted = text
-	
+
 	-- run thru the chain
 	for customToken, key in self.chain do
 		-- grab the token (if we get it from callKeys it's just for verifying)
 		local token = staticKeys[key :: string] or special.callKeys[key]
 		if token then
 			-- format the customToken if it's a string if it's not then just use the token we just got
-			formatted = format(if type(customToken) == "string" then customToken else token, formatted)
+			formatted =
+				format(if type(customToken) == "string" then customToken else token, formatted)
 		end
 	end
 
@@ -44,13 +45,13 @@ local function processIndexed(self: Types.ProcesserObject, key: string): any
 	end
 	-- check overlaps
 	self:checkOverlaps(key)
-	
+
 	-- check if we're a call key
 	local callKey = special.callKeys[key]
 	if callKey then
 		return function(...: any)
 			local customToken = callKey(...)
-			
+
 			local customTokenType = type(customToken)
 			-- if customToken is a table of subTokens
 			if customTokenType == "table" then
@@ -64,20 +65,20 @@ local function processIndexed(self: Types.ProcesserObject, key: string): any
 				-- add to the chain
 				self.chain[customToken] = key
 			end
-			
+
 			return self.crayon
 		end
 	elseif staticKeys[key] then
 		-- add to the chain
 		self.chain[#self.chain + 1] = key
 	end
-	
+
 	return self.crayon
 end
 
 local function checkOverlaps(self: Types.ProcesserObject, key: string)
 	local isStatic = not not staticKeys[key] -- not not turns it into a bool
-	
+
 	-- check if this overlaps with anything else
 	for _, overlap in special.keyOverlaps do
 		-- if we the key in an overlap
@@ -99,7 +100,11 @@ local function checkOverlaps(self: Types.ProcesserObject, key: string)
 	end
 end
 
-local function Processer(crayonConstructer: (chain: Types.CrayonChain?) -> Types.CrayonObject, chain: Types.CrayonChain, crayon: Types.CrayonObject): Types.ProcesserObject
+local function Processer(
+	crayonConstructer: (chain: Types.CrayonChain?) -> Types.CrayonObject,
+	chain: Types.CrayonChain,
+	crayon: Types.CrayonObject
+): Types.ProcesserObject
 	local processer = {
 		chain = chain,
 		crayon = crayon,
