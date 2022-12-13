@@ -91,4 +91,4 @@ label.Text = crayon.clean.opacity "0.5 opacity" -- this will just be opacity!
 
 > **Note**: If you found something wrong you can always [create a new issue](https://github.com/Almost89/Crayon/issues/new) (response may be slow)
 
-> **Credit**: This is one of my first projects using Rojo, Wally, Selene, StyLua, Roblox LSP and Aftman so most of it came from [csqrl/codify-plugin](https://github.com/csqrl/codify-plugin) it's under the MIT License so `Copyright (c) 2022 csqrl`. Thanks!
+> **Credit**: This is one of my first projects using Rojo, Wally, Selene, StyLua, Roblox LSP and Aftman so most of it came from [csqrl](https://github.com/csqrl/) projects see [copyright files](/COPYRIGHT). Thanks!
