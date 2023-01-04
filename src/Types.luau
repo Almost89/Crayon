@@ -1,7 +1,9 @@
---!strict
+-- Copyright (c) 2023 Almost89
 --[[
 	Types - All the Types for Crayon
+
 	By: @Almost89 (Almosta_89)
+	License: MIT
 ]]
 
 export type CrayonChain = {
@@ -25,15 +27,15 @@ export type CrayonObject = {
 	__call: (self: CrayonObject) -> string,
 }
 
---TODO: fix and use this in Keys.lua
-export type Keys = {
-	keys: {
+export type KeysTable = {
+	staticKeys: {
 		[string]: any,
 	},
 	special: {
-		formatKeys: { [string]: string? },
-		keyOverlaps: { { string }? },
-		classCallKeys: {},
+		formatKeys: { [string]: string },
+		keyOverlaps: { [number]: { string } },
+		callKeys: { [string]: (...any) -> (string | CrayonChain) },
+		classCallKeys: { [string]: (processer: ProcesserObject) -> CrayonObject },
 	},
 }
 
@@ -63,11 +65,11 @@ export type CrayonPubObject = ({
 	uc: CrayonPubObject,
 
 	-- function richtext
-	opacity: (opacity: string | number) -> CrayonPubObject,
-	transparency: (transparency: string | number) -> CrayonPubObject,
-	weight: (weight: string | number) -> CrayonPubObject,
-	font: (font: Font) -> CrayonPubObject,
-	color: (color: Color3 | BrickColor) -> CrayonPubObject,
+	opacity: (opacity: (string | number)) -> CrayonPubObject,
+	transparency: (transparency: (string | number)) -> CrayonPubObject,
+	weight: (weight: (string | number)) -> CrayonPubObject,
+	font: (font: Font | Enum.Font | string) -> CrayonPubObject,
+	color: (color: (Color3 | BrickColor | string | number)) -> CrayonPubObject,
 
 	-- object customizers
 	clean: CrayonPubObject,

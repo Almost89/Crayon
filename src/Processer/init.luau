@@ -1,7 +1,9 @@
---!strict
+-- Copyright (c) 2023 Almost89
 --[[
 	Processer - The Processer class
+
 	By: @Almost89 (Almosta_89)
+	License: MIT
 ]]
 -- services:
 
@@ -12,23 +14,26 @@ local Root = script.Parent
 local Types = require(Root.Types)
 local Keys = require(script.Keys)
 
-local format = require(script.format)
-local find = require(script.find)
+local Utils = require(script.Utils)
 
 -- variables:
 local staticKeys = Keys.staticKeys
 local special = Keys.special
 
+local find = Utils.find
+local length = Utils.length
+local format = Utils.format
+
 -- functions:
 local function processChain(self: Types.ProcesserObject, text: string)
 	local formatted = text
 
-	-- run thru the chain
+	-- run through the chain
 	for customToken, key in self.chain do
 		-- grab the token (if we get it from callKeys it's just for verifying)
 		local token = staticKeys[key :: string] or special.callKeys[key]
 		if token then
-			-- format the customToken if it's a string if it's not then just use the token we just got
+			-- format the customToken if it's a string else just use the token we have
 			formatted =
 				format(if type(customToken) == "string" then customToken else token, formatted)
 		end
@@ -49,6 +54,7 @@ local function processIndexed(self: Types.ProcesserObject, key: string): any
 	-- check if we're a call key
 	local callKey = special.callKeys[key]
 	if callKey then
+		-- wrap the call key so we can catch the returned value
 		return function(...: any)
 			local customToken = callKey(...)
 
@@ -70,28 +76,32 @@ local function processIndexed(self: Types.ProcesserObject, key: string): any
 		end
 	elseif staticKeys[key] then
 		-- add to the chain
-		self.chain[#self.chain + 1] = key
+		self.chain[length(self.chain) + 1] = key
 	end
 
 	return self.crayon
 end
 
 local function checkOverlaps(self: Types.ProcesserObject, key: string)
-	local isStatic = not not staticKeys[key] -- not not turns it into a bool
+	--see line 105: local isStaticKey = not not staticKeys[key] -- not not turns it into a bool
 
 	-- check if this overlaps with anything else
 	for _, overlap in special.keyOverlaps do
-		-- if we the key in an overlap
+		-- if we're in an overlap
 		if find(overlap, key) then
-			-- run thru the overlap items
+			-- run through the overlap items
 			for _, item in overlap do
-				local foundIndex = find(self.chain, item) :: (string | number)
+				local foundIndex = find(self.chain, item) :: (string | number | false)
+
 				if foundIndex then
-					-- check if it's static
-					if isStatic then
+					print(foundIndex)
+					--[[ for some reason younger me did this:
+					-- check if it's a static key
+					if isStaticKey then
 						-- just return
 						return self.crayon
 					end
+					]]
 					-- else remove it
 					self.chain[foundIndex] = nil
 				end

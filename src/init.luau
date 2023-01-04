@@ -1,7 +1,9 @@
---!strict
+-- Copyright (c) 2023 Almost89
 --[[
 	Crayon - Don't bother with rich text. Based on Chalk.
+
 	By: @Almost89 (Almosta_89)
+	License: MIT
 ]]
 -- services:
 
@@ -15,11 +17,13 @@ local Processer = require(script.Processer)
 
 -- functions:
 local function index(self: Types.CrayonObject, key: string): any
-	return rawget(self, "processor"):processIndexed(key)
+	return (rawget(self, "processor") :: Types.ProcesserObject):processIndexed(key)
 end
 
 local function call(self: Types.CrayonObject, ...: string): string
-	return rawget(self, "processor"):processChain(table.concat({ ... }, " "))
+	return (rawget(self, "processor") :: Types.ProcesserObject):processChain(
+		table.concat({ ... }, " ")
+	)
 end
 
 function Crayon(chain: Types.CrayonChain?): Types.CrayonObject

@@ -2,7 +2,7 @@
 name = "almost89/crayon"
 description = "Don't bother with rich text. Based on Chalk."
 license = "MIT"
-version = "1.0.0"
+version = "1.1.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 
