@@ -1,8 +1,11 @@
-<div align="center" style="background: red;">
+<div align="center">
 
 # `🖍️ Crayon`
-
-### <code>Don't bother with rich text. Based on [Chalk](https://github.com/chalk/chalk).</code>
+[![Get it on Roblox](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/roblox_dev.svg)](https://create.roblox.com/marketplace/asset/11389890705)
+[![Source on Github](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/github_source.svg)](https://github.com/Almost89/Crayon/releases)
+[![Source on Github](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/wally.svg)](/)
+#### Don't bother with rich text. Based on [Chalk](https://github.com/chalk/chalk).
+---
 
 ![A preview of all the possible styles](https://user-images.githubusercontent.com/78914413/205636713-32d61aba-d036-4d65-bd70-0a8479e8259c.png)
 
@@ -14,10 +17,12 @@ With Crayon it's easy to create and manage rich text styles with ease. No more h
 ```
 Every time you put a token in wrong.
 
-## Install:
-Get it:
-- [from the Roblox marketplace](https://create.roblox.com/marketplace/asset/11389890705)
-- [from the Github releases tab](https://github.com/Almost89/Crayon/releases)
+**TODO: great docs**
+<!-- 
+## Download:
+[![Get it on Roblox](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/roblox_dev-icon.svg)](https://create.roblox.com/marketplace/asset/11389890705)
+[![Get it on Github](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/github-icon.svg)](https://github.com/Almost89/Crayon/releases)
+[![Get it with Wally](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/wally-icon.svg)](/)
 - ~~[with Wally]()~~ (soon)
 
 ## Usage:
@@ -88,7 +93,7 @@ label.Text = crayon.clean.opacity "0.5 opacity" -- this will just be opacity!
 - `weight`: `(weight: string | number)`
 - `font`: `(font: Font)`
 - `color`: `(color: Color3)`
-
+-->
 > **Note**: If you found something wrong you can always [create a new issue](https://github.com/Almost89/Crayon/issues/new) (response may be slow)
 
 > **Credit**: This is one of my first projects using Rojo, Wally, Selene, StyLua, Roblox LSP and Aftman so most of it came from [csqrl's](https://github.com/csqrl/) projects see [copyright files](/COPYRIGHT). Thanks!
