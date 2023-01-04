@@ -1,6 +1,6 @@
---!strict
+-- Copyright (c) 2023 Almost89
 --[[
-	Keys - Holds all keys (wow 🤩)
+	Keys - Holds all keys and tokens (wow 🤩)
 	
 	By: @Almost89 (Almosta_89)
 	License: MIT
@@ -13,10 +13,14 @@ local Root = script.Parent.Parent
 -- packages:
 local Types = require(Root.Types)
 
-local rgb = require(script.Parent.rgb)
-local unpackKeys = require(script.Parent.unpackKeys)
+local Utils = require(script.Parent.Utils)
 
 -- variables:
+local toRGB = Utils.toRGB
+local unpackKeys = Utils.unpackKeys
+local isValueTypeAllowed = Utils.isValueTypeAllowed
+
+local TYPE_ERROR = "The type '%%s' is not allowed in the style key '%s'."
 
 -- builtin colors
 local colors = {
@@ -32,7 +36,7 @@ local colors = {
 }
 colors.grey = colors.gray
 
--- all the rich text tokens needed
+-- all the static tokens needed
 local staticKeys = {
 	bold = "<b>",
 	italic = "<i>",
@@ -40,13 +44,14 @@ local staticKeys = {
 	uppercase = "<uc>",
 	strikethrough = "<s>",
 }
+-- shorthand
 staticKeys.b = staticKeys.bold
 staticKeys.i = staticKeys.italic
 staticKeys.u = staticKeys.underline
 staticKeys.s = staticKeys.strikethrough
 staticKeys.uc = staticKeys.uppercase
 
--- these staticKeys need formating
+-- all the tokens that need formating
 local formatKeys = {
 	transparency = "<font transparency='%s'>",
 	color = "<font color='rgb(%s,%s,%s)'>",
@@ -54,38 +59,66 @@ local formatKeys = {
 	family = "<font family='%s'>",
 }
 
--- these call keys format the keys from formatKeys
+-- all the keys that need calling
 local callKeys = {
-	font = function(font: Font)
-		return {
+	font = function(font: (Font | Enum.Font | string))
+		local fontType =
+			isValueTypeAllowed(font, TYPE_ERROR:format("font"), "Font", "EnumItem", "string")
+		-- check if font is actually a font name
+		if fontType == "string" then
+			font = Font.fromName(font) -- if it is then create a new font object
+		elseif fontType == "EnumItem" then
+			font = Font.fromEnum(font)
+		end
+		-- this call key is extra special as it returns a subchain
+		--FIXME: it seems subchains aren't working
+		return formatKeys.family:format(font.Family) --[[{
 			[formatKeys.weight:format(font.Weight.Name)] = "weight",
 			[formatKeys.family:format(font.Family)] = "family",
 			if font.Style == Enum.FontStyle.Italic then "italic" else nil,
 			if font.Bold then "bold" else nil,
-		} :: Types.CrayonChain
+		} :: Types.CrayonChain]]
 	end,
-	color = function(color: Color3 | BrickColor)
-		return formatKeys.color:format(rgb(color))
+	color = function(color: (Color3 | BrickColor | string | number))
+		-- this formats color into it's red, green and blue values and puts it into the color token
+		return formatKeys.color:format(toRGB(color))
 	end,
-	weight = function(weight: string | number)
+	weight = function(weight: (string | number))
+		isValueTypeAllowed(weight, TYPE_ERROR:format("weight"), "string", "number")
+		-- this just formats the weight token
 		return formatKeys.weight:format(weight)
 	end,
-	transparency = function(transparency: number | string)
-		transparency = math.min(tonumber(transparency) or 0, 1)
+	transparency = function(transparency: (string | number))
+		isValueTypeAllowed(transparency, TYPE_ERROR:format("transparency"), "string", "number")
+		transparency = tonumber(transparency) -- turn the transparency variable into a number
+		if transparency > 1 then
+			transparency = 1
+		elseif transparency < 0 then
+			transparency = 0
+		end
+		-- format the transparency token
 		return formatKeys.transparency:format(transparency)
 	end,
 }
-callKeys.opacity = callKeys.transparency
+-- wrap opacity so it can have its own type error
+-- FIXME: I don't know if this is a good idea. Maybe for v2?
+callKeys.opacity = function(opacity: (string | number))
+	isValueTypeAllowed(opacity, TYPE_ERROR:format("opacity"), "string", "number")
+	return callKeys.transparency(opacity)
+end
 
 local classCallKeys = {
 	extend = function(processer: Types.ProcesserObject)
+		-- create a new crayon object with a clone of the chain
 		return processer.crayonConstructer(table.clone(processer.chain))
 	end,
 	clean = function(processer: Types.ProcesserObject)
+		-- clear the chain and return the crayon object
 		table.clear(processer.chain)
 		return processer.crayon
 	end,
 }
+-- shorthand
 classCallKeys.e = classCallKeys.extend
 classCallKeys.c = classCallKeys.clean
 
@@ -120,4 +153,4 @@ return {
 		keyOverlaps = keyOverlaps,
 		classCallKeys = classCallKeys,
 	},
-}
+} :: Types.KeysTable
