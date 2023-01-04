@@ -2,8 +2,8 @@
 
 # `🖍️ Crayon`
 [![Get it on Roblox](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/roblox_dev.svg)](https://create.roblox.com/marketplace/asset/11389890705)
-[![Source on Github](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/github_source.svg)](https://github.com/Almost89/Crayon/releases)
-[![Source on Github](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/wally.svg)](/)
+[![Source on Github](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/github_source.svg)](https://github.com/Almost89/Crayon)
+[![Not currently on Wally](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/wally.svg)](/)
 #### Don't bother with rich text. Based on [Chalk](https://github.com/chalk/chalk).
 ---
 
@@ -18,12 +18,13 @@ With Crayon it's easy to create and manage rich text styles with ease. No more h
 Every time you put a token in wrong.
 
 **TODO: great docs**
-<!-- 
+<!--
+Hello source viewer! Ignore the below real docs will be out soon!
+ 
 ## Download:
 [![Get it on Roblox](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/roblox_dev-icon.svg)](https://create.roblox.com/marketplace/asset/11389890705)
 [![Get it on Github](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/github-icon.svg)](https://github.com/Almost89/Crayon/releases)
 [![Get it with Wally](https://gist.github.com/csqrl/0dbc95191f239b631c3874f4ccf114e2/raw/wally-icon.svg)](/)
-- ~~[with Wally]()~~ (soon)
 
 ## Usage:
 ```lua
